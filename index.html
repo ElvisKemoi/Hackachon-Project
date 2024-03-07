@@ -1,0 +1,207 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmers Weather Forecast</title>
+    <link rel="stylesheet" href="agroforecast.css">
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url("/Untitled.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+}
+.container {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #3634349a;
+    border-radius: 5px;
+    border-radius: 50px;
+    color: #fff;
+}
+h1 {
+    text-align: center;
+    font-size: 50px;
+    color: #fff;
+    font-weight: 800;
+
+}
+
+.container img {
+    top: 0;
+    left: 0;
+    border-radius: 100%;
+}
+
+.container p {
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: .5px;
+    line-height: 1.5;
+    padding: 5px;
+}
+
+form {
+    text-align: center;
+    margin-top: 20px;
+}
+input[type="text"] {
+    padding: 10px;
+    width: 60%;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover{
+    background-color: #ffa800;
+    scale: 1.1;
+    text-decoration: none;
+    letter-spacing: 2px;
+    transition: all .5s ease;
+}
+
+.forecast {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #000;
+    border-radius: 5px;
+}
+.forecast h2 {
+    margin-top: 0;
+}
+
+.text {
+    /* top: 0; */
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.text-about {
+    padding-left: 5px;
+    width: 100%;
+    height: 100%;
+    border: 1px solid transparent;
+}
+
+.text-about p {
+    color: #ffa800;
+    letter-spacing: .5px;
+    font-weight: bolder;
+    font-size: 36px;
+    font-family: 'poppins', sans-serif;
+}
+
+section {
+    width: 100%;
+    height: 100%;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.section {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <img src="/Untitled.png" alt="">
+        <p>Prediction for a quality farming experiences</p>
+        <h1>Farmers Weather Forecast</h1>
+        <form id="weatherForm">
+            <label for="location">Enter myFarm Location:</label>
+            <input type="text" id="location" name="location" placeholder="Enter your location">
+            <!-- <button type="submit"></button> -->
+            <input type="submit" value="Get Forecast" onclick="getWeatherForecast(); ">
+        </form>
+        <div id="forecast" class="forecast"></div>
+    </div>
+
+    <!-- <div class="text">
+        <div class="text-about">
+            <p>Welcome to the future of farming, introducing the new era of weather forecast. PREDICT AND BE SURE</p>
+        </div>
+    </div> -->
+
+   
+    <section>
+        <footer>
+            <div class="section">
+                <div class="align">
+                    <img src="images.jpg" alt="">
+                </div>
+            </div>
+        </footer>
+    </section>
+
+    <script>
+        document.getElementById('weatherForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+            var location = document.getElementById('location').value;
+            getWeatherForecast(location);
+        });
+
+        function getWeatherForecast(location) {
+            // Replace 'YOUR_API_KEY' with your OpenWeatherMap API key
+            var apiKey = '0a532f8f8349abfdd297a93ccc5e8c10';
+            var apiUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + location + '&appid=' + apiKey;
+
+            // Fetch weather data from OpenWeatherMap API
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    // Extract relevant weather information from API response
+                    var temperature = data.main.temp;
+                    var conditions = data.weather[0].description;
+                    var windSpeed = data.wind.speed;
+                    var humidity = data.main.humidity;
+
+                    // Display the weather forecast
+                    displayForecast(temperature, conditions, windSpeed, humidity);
+                })
+                .catch(error => {
+                    console.error('Error fetching weather data:', error);
+                });
+        }
+
+        function displayForecast(temperature, conditions, windSpeed, humidity) {
+            var forecastDiv = document.getElementById('forecast');
+            forecastDiv.innerHTML = "<h2>Weather Forecast</h2>" +
+                "<p><strong>Temperature:</strong> " + kelvinToCelsius(temperature) + "°C</p>" +
+                "<p><strong>Conditions:</strong> " + conditions + "</p>" +
+                "<p><strong>Wind Speed:</strong> " + windSpeed + " m/s</p>" +
+                "<p><strong>Humidity:</strong> " + humidity + "%</p>";
+        }
+
+        // Utility function to convert temperature from Kelvin to Celsius
+        function kelvinToCelsius(kelvin) {
+            return kelvin - 273.15;
+        }
+    </script>
+</body>
+</html>
