@@ -1,0 +1,72 @@
+[
+	{
+		"durationInMillis": "9632",
+		"phoneNumber": "+254716202899",
+		"errorMessage": "",
+		"serviceCode": "*384*40002#",
+		"lastAppResponse": "END Weather Forecast for Nairobi:\nDate: Wed Jul 03 2024 00:00:00 GMT+0300 (East Africa Time)\nTemperature: 15.44°C\nConditions: broken clouds\nWind Speed: 2.36 m/s\nHumidity: 77%",
+		"hopsCount": "2",
+		"status": "Success",
+		"sessionId": "ATUid_b9460b96b0ae0e3e4f0567258c5bff99",
+		"cost": "0.00",
+		"date": "2024-07-02 10:58:44",
+		"networkCode": "99999",
+		"input": "Nairobi "
+	},
+	{
+		"durationInMillis": "27400",
+		"phoneNumber": "+254716202899",
+		"errorMessage": "",
+		"serviceCode": "*384*40002#",
+		"lastAppResponse": "END Weather Forecast for Washington:\nDate: Wed Jul 03 2024 00:00:00 GMT+0300 (East Africa Time)\nTemperature: 29.27°C\nConditions: clear sky\nWind Speed: 4.71 m/s\nHumidity: 19%",
+		"hopsCount": "2",
+		"status": "Success",
+		"sessionId": "ATUid_028f837bc2c6b498d48b0474660299a0",
+		"cost": "0.00",
+		"date": "2024-07-02 11:00:00",
+		"networkCode": "99999",
+		"input": "Washington "
+	},
+	{
+		"durationInMillis": "9538",
+		"phoneNumber": "+254787654321",
+		"errorMessage": "",
+		"serviceCode": "*384*40002#",
+		"lastAppResponse": "END Weather Forecast for Nairobi:\nDate: Wed Jul 03 2024 00:00:00 GMT+0300 (East Africa Time)\nTemperature: 15.44°C\nConditions: broken clouds\nWind Speed: 2.36 m/s\nHumidity: 77%",
+		"hopsCount": "2",
+		"status": "Success",
+		"sessionId": "ATUid_cc17ea8f6bb765589104ef3506515ed3",
+		"cost": "0.00",
+		"date": "2024-07-02 11:02:16",
+		"networkCode": "99999",
+		"input": "Nairobi "
+	},
+	{
+		"durationInMillis": "7981",
+		"phoneNumber": "+254787654321",
+		"errorMessage": "",
+		"serviceCode": "*384*40002#",
+		"lastAppResponse": "END Weather Forecast for Nairobi:\nDate: Wed Jul 03 2024 00:00:00 GMT+0300 (East Africa Time)\nTemperature: 15.57°C\nConditions: broken clouds\nWind Speed: 2.41 m/s\nHumidity: 79%",
+		"hopsCount": "2",
+		"status": "Success",
+		"sessionId": "ATUid_be04e00c84db41ce447ea21bf10f3a3c",
+		"cost": "0.00",
+		"date": "2024-07-02 11:24:12",
+		"networkCode": "99999",
+		"input": "Nairobi "
+	},
+	{
+		"durationInMillis": "856",
+		"phoneNumber": "+254787654321",
+		"errorMessage": "",
+		"serviceCode": "*384*40002#",
+		"lastAppResponse": "CON Welcome to Farmers Weather Forecast\nPlease enter your location (e.g., city or zip code):",
+		"hopsCount": "1",
+		"status": "Incomplete",
+		"sessionId": "ATUid_97d1d897626e31365fd771ba10e738cf",
+		"cost": "0.00",
+		"date": "2024-07-02 11:24:48",
+		"networkCode": "99999",
+		"input": ""
+	}
+]

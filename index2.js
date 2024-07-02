@@ -1,11 +1,14 @@
+require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 //const fetch = require('node-fetch');
+const fs = require("fs");
 
 const app = express();
 const PORT = 3000;
 
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 app.post("/", async (req, res) => {
 	let text = req.body.text.trim();
@@ -39,8 +42,20 @@ app.post("/", async (req, res) => {
 	res.send(response);
 });
 
+app.post("/events", (req, res) => {
+	let data = fs.readFileSync("./data.json");
+	let myObj = JSON.parse(data);
+	let newData = req.body;
+	myObj.push(newData);
+	let newData2 = JSON.stringify(myObj);
+	fs.writeFileSync("./data.json", newData2, (err) => {
+		if (err) throw err;
+		console.log("Data Saved");
+	});
+});
+
 async function getWeatherForecast(location) {
-	const apiKey = "0a532f8f8349abfdd297a93ccc5e8c10";
+	const apiKey = process.env.API_KEY;
 	const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${location}&appid=${apiKey}&units=metric`;
 
 	try {
